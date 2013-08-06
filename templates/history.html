@@ -1,0 +1,17 @@
+{% extends "welcome.html" %}
+{% block navbartool %}
+{% endblock %}
+
+{% block content %}
+	<table class=" table table-hover">
+	 <caption>burasi history</caption>
+	 <thead><th>name</th><th>content</th>
+	  <th>version</th><th></th><th></th>
+	 </thead>
+	 <tbody>
+	 {% for h in history %}
+		{{ h.render() | safe }}
+	 {% endfor %}
+	 </tbody>
+	</table>
+{% endblock %}

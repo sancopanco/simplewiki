@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+    <h1>CodeMirror: Python mode</h1>
+ {% block content %}   
+<div>
+	<textarea id="code" name="code" class="inpt">
+
+		# Some Example code
+		import os
+		from package import ParentClass
+
+		@nonsenseDecorator
+		def doesNothing():
+			pass
+
+		class ExampleClass(ParentClass):
+			@staticmethod
+			def example(inputStr):
+				a = list(inputStr)
+				a.reverse()
+				return ''.join(a)
+
+			def __init__(self, mixin = 'Hello'):
+				self.mixin = mixin
+
+	</textarea>
+</div>
+ <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: {name: "python",
+               version: 2.7,
+               singleLineStringErrors: false},
+        lineNumbers: true,
+        indentUnit: 4,
+        tabMode: "shift",
+        matchBrackets: true
+      });
+</script>
+   
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-unit">
+	{% block innercontent %}
+	
+	 <h1>Simple Wiki...</h1><br/>
+	 <p><a class="btn btn-primary btn-large" href="/signup">Signup Now! </a></p>
+	 {{ wiki_content }}
+	
+	{% endblock %}
+	
+</div>
+{% endblock %}
+
+			  

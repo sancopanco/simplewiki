@@ -1,0 +1,21 @@
+var pyInputCodeMirror; // CodeMirror object that contains the input text
+
+function setCodeMirrorVal(dat) {
+  pyInputCodeMirror.setValue(dat.rtrim() /* kill trailing spaces */);
+	// also scroll to top to make the UI more usable on smaller monitors
+  $(document).scrollTop(0);
+}
+
+
+$(document).ready(function() {
+
+	pyInputCodeMirror = CodeMirror(document.getElementById('codeInputPane'), {
+    mode: 'python',
+    lineNumbers: true,
+    tabSize: 4,
+    indentUnit: 4,
+    // convert tab into four spaces:
+    extraKeys: {Tab: function(cm) {cm.replaceSelection("    ", "end");}}
+  });
+
+  pyInputCodeMirror.setSize(null, '420px');

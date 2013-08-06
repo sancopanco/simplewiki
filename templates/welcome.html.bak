@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block navbar %}
+<div class="container">
+			
+	<a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span></a>
+	<a href="/" class="brand">WikiProject</a>
+	<div class="nav-collapse collapse">
+		<ul class="nav">
+		<li class="active"><a href="/">Home</a></li>
+		{% block navbartool %}
+		<li><a href="_history{{page_name}}">History</a></li>
+		<li><a href="_edit{{page_name}}">Edit</a></li>
+		{% endblock %}
+		<li class="dropdown">
+			<a data-toggle="dropdown" class="dropdown-toggle" href="#">{{username}} <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="/_user/{{username}}">Profile</a></li>
+				<li><a href="/logout">logout</a></li>
+			</ul>
+		</li>
+		</ul>
+	</div><!--/.nav-collapse -->
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+	<div >
+		<h2>Welcome {{username}}</h2>
+	</div>
+	
+		{{ wiki_content | safe}}
+		
+<div id="pyInputPane">
+
+Write your Python code here:
+<br/>
+
+	<div id="codeInputPane"></div> <!-- populate with a CodeMirror instance -->
+
+	<p style="margin-top: 10px;">
+	Execute code using
+	  <select id="pythonVersionSelector">
+		<option value="2">Python 2.7</option>
+		<option value="3">Python 3.2</option>
+	  </select>
+	and
+	  <select id="cumulativeModeSelector">
+		<option value="false">don't display exited functions (default).</option>
+		<option value="true">display frames of exited functions.</option>
+	  </select>
+	</p>
+
+	<p>
+	<button id="executeBtn" class="bigBtn" type="button">Visualize execution</button>
+	</p>
+
+
+	</div>
+		
+
+{% endblock %}

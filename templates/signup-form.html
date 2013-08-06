@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+	 <form class="form-horizontal" method="post" action="/signup" 
+	 enctype="multipart/form-data" >
+		<h2 class="form-signin-heading">Please signup !</h2>
+		<div class="control-group">
+			<label class="control-label" for="inputUser">Username</label>
+			<div class="controls">
+				<input type="text" name="username" id="inputUser"
+				value = "{{username}}"
+				placeholder="Username">
+				<p>{{error_username}}</p>
+		    </div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Email</label>
+			<div class="controls">
+				<input type="text" name="email" id="inputEmail" placeholder="Email"
+				value="{{email}}">
+				<p>{{error_email}}</p>
+		    </div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputPassword">Password</label>
+			<div class="controls">
+				<input type="password" name="password" id="inputPassword" placeholder="Password">
+				<p>{{error_password}}</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputRPassword">Verify Password</label>
+			<div class="controls">
+				<input type="password" name="verify" id="inputRPassword" placeholder="Verify Password">
+				<p>{{error_verify}}</p>
+			</div>
+		</div>
+		
+		<div class="control-group">
+			<div class="controls">
+				<label class="checkbox">
+				<input type="checkbox"> Remember me
+				</label>
+				<button type="submit" class="btn">Signup</button>
+			</div>
+		</div>
+	</form>
+
+{% endblock %}

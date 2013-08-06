@@ -1,0 +1,7 @@
+<tr class="success">
+	<td>{{ h.created.strftime("%b %d,%y %X") }} </td>
+	<td>{{ h.content }}</td>
+	<td>{{ h.version }}</td>
+	<td><a class="btn btn-small" href="_Edit{{h.name}}">Edit</a></td>
+	<td><a class="btn btn-small" href="{{ h.name }}/?v={{ h.version }}">view</a></td>
+</tr>

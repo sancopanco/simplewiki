@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block head %}
+		<title>{% block title %}{% endblock %} -My WebPage</title>
+		<link type="text/css" rel="stylesheet" href= "/static/css/bootstrap.css" />
+		<link type="text/css" rel="stylesheet" href= "/static/css/bootstrap-responsive.css">
+		
+		<!-- codemirror.net online code editor -->
+		<link rel="stylesheet" href="/static/codemirror-3.0/lib/codemirror.css">
+		<script src="/static/codemirror-3.0/lib/codemirror.js"></script>
+		<script src="/static/codemirror-3.0/lib/util/matchbrackets.js"></script>
+		<script src="/static/codemirror-3.0/mode/python/python.js"></script>
+		<style type="text/css">
+		
+			  body {
+				padding-top: 60px;
+				padding-bottom: 40px;
+			  }
+			  .form-signin {
+					max-width: 300px;
+					padding: 19px 29px 29px;
+					margin: 0 auto 20px;
+					background-color: #fff;
+					border: 1px solid #e5e5e5;
+					-webkit-border-radius: 5px;
+					-moz-border-radius: 5px;
+					border-radius: 5px;
+					-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+					-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+					box-shadow: 0 1px 2px rgba(0,0,0,.05);
+				}
+				.form-signin .form-signup-heading,
+				.form-signin .checkbox {
+					margin-bottom: 10px;
+				}
+				.form-signin input[type="text"],
+				.form-signin input[type="password"] {
+					font-size: 16px;
+					height: auto;
+					margin-bottom: 15px;
+					padding: 7px 9px;
+				}
+				.CodeMirror {
+					border-top: 1px solid black; 
+					border-bottom: 3px solid #fcc;
+					border-right: 3px solid #fcc;
+				}	
+			  
+		</style>
+		{% endblock %}
+	</head>
+	<body>
+		  <div class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="navbar-inner">
+			{% block navbar %}
+			<div class="container">
+			
+			  <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </a>
+			  <a href="/" class="brand">WikiProject</a>
+			  <div class="nav-collapse collapse">
+				<ul class="nav">
+				  <li class="active"><a href="/">Home</a></li>
+				  <li><a href="#about">About</a></li>
+				  {% block navbartool %}
+				  <li><a href="#about">History</a></li>
+				  <li><a href="#about">{{edit}}</a></li>
+				  {% endblock %}
+				</ul>
+				<form class="navbar-form pull-right" method="post" action="/login" enctype="multipart/form-data" >
+				  <input type="text" name="username" placeholder="username" class="span2">
+				  <input type="password" name="password" placeholder="Password" class="span2">
+				  <button class="btn" type="submit">Sign in</button>
+				</form>
+			  </div><!--/.nav-collapse -->
+			</div>
+			{% endblock %}
+		  </div>
+		</div>
+		
+		
+		
+		
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+			<hr>
+			<footer>
+				<p>&copy; Company 2012</p>
+			</footer>
+		</div>
+			 
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" src="/static/js/bootstrap.js"></script>	
+	<body>
+</html>

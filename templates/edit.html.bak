@@ -1,0 +1,36 @@
+{% extends "welcome.html" %}
+
+{% block navbartool %}
+<li><a href="#about">History</a></li>
+<li><a href="{{page.name}}">View</a></li>
+{% endblock %}
+
+{% block content %}
+ <form action="/_edit/{{ page.name|escape }}" method="post">
+    <div>
+	
+		<p>{{ page.content|escape }}</p>
+		<textarea id="code" name="code" class="inpt">
+
+			# Some Example code
+			import os
+		</textarea>
+	</div>
+	<br/>
+	<div class="controls">
+      <span class="item"><input type="submit" class="btn" value="Save Changes"/></span>
+      <span class="item"><input type="button" class="btn" onclick="location.href='{{ page.name|escape }}'" value="Cancel"/></span>
+    </div>
+	<script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: {name: "python",
+               version: 2.7,
+               singleLineStringErrors: false},
+        lineNumbers: true,
+        indentUnit: 4,
+        tabMode: "shift",
+        matchBrackets: true
+      });
+	</script>
+  </form>
+{% endblock %}
